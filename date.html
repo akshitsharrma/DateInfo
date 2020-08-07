@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <br>
+    <button onclick="detail()">Detail</button>
+    <button onclick="NextDate()">NextDate</button>
+    <button onclick="PreviousDate()">PreviousDate</button>
+</body>
+<script>
+    var i=1;
+    var days=["Sunday","Monday","Tuesday","Wednesday",
+            "Thusday","Friday","Saturday"]
+    var months = ["January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"];
+    var input1=document.getElementById("input1");
+    var val=input1.value;
+    function detail()
+    {
+        var date=new Date(input1.value)
+        console.log("Day: ",days[date.getDay()]);
+        console.log("Date: ",date.getDate());
+        console.log("Month: ",months[date.getMonth()]);
+        console.log("Year: ",date.getFullYear());
+    }
+    function NextDate()
+    {   var input1=document.getElementById("input1");
+        var date = new Date(input1.value);
+        const tomorrow = new Date(date)
+        tomorrow.setDate(tomorrow.getDate()+ 1)
+        var curr=tomorrow.getDate();
+        var day=days[tomorrow.getDay()];
+        var Month=months[tomorrow.getMonth()]
+        var Year=tomorrow.getFullYear();
+        input1.value=curr+" "+Month+" "+Year;
+        console.log("Day: ",day);
+        console.log("Date: ",curr);
+        console.log("Month: ",Month);
+        console.log("Year: ",Year);  
+    }
+    function PreviousDate()
+    {   var input1=document.getElementById("input1");
+        var date = new Date(input1.value);
+        const prev = new Date(date);
+        prev.setDate(prev.getDate()-1)
+        var curr=prev.getDate();
+        var day=days[prev.getDay()];
+        var Month=months[prev.getMonth()]
+        var Year=prev.getFullYear();
+        input1.value=curr+" "+Month+" "+Year;
+        console.log("Day: ",day);
+        console.log("Date: ",curr);
+        console.log("Month: ",Month);
+        console.log("Year: ",Year);  
+    }
+</script>
+</html>
